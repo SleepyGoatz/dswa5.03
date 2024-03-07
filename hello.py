@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 
@@ -24,6 +24,15 @@ def index():
      return render_template('index.html', current_time=datetime.utcnow())
 
 
-@app.route('/user/<name>')
-def user(name):
-    return render_template('user.html', name=name)
+@app.route('/user/<nome>/<prontuario>/<instituicao>')
+def identification_page(nome, prontuario, instituicao):
+    return render_template('user.html', nome=nome, prontuario=prontuario, instituicao=instituicao)
+
+
+@app.route('/request-context/<nome>')
+def request_context_page(nome):
+    user_agent = request.headers.get('User-Agent')
+    remote_addr = request.remote_addr
+    host = request.host
+
+    return render_template('request_context.html', nome=nome, user_agent=user_agent, remote_addr=remote_addr, host=host)
