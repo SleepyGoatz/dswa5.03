@@ -18,11 +18,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Flasky</a>
+            <a class="navbar-brand" href="/">Avaliação contínua: <strong>Aula 040</strong></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
+                <li><a href="{{ url_for('identification_page', nome='Luis de Moura Neto', prontuario='PT3019861', instituicao='IFSP') }}">Identificação</a></li>
+                <li><a href="{{ url_for('request_context_page', nome='Luis de Moura Neto') }}">Contexto da Requisição</a></li>
             </ul>
         </div>
     </div>
